@@ -1,0 +1,749 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Transductive FSPS</title>
+<!--<style type="text/css">-->
+<!--
+body {
+	background-color: #D6BA8F;
+}
+-->
+</style></head>
+
+<body id="aeaoofnhgocdbnbeljkmbjdmhbcokfdb-mousedown" bgcolor="#BEBEBE">
+<h2 align="center">Transductive Face Sketch Synthesis</h2>
+<!--<br/><br/>
+<h3 align = "left"><font size=5 color=#000000>Nannan Wang, Dacheng Tao, Xinbo Gao, Xuelong Li, Jie Li, "Transductive Face Sketch-Photo Synthesis", Submitted.</font></h3>-->
+<table width="1460" border="1" align="center">
+  <tbody><tr>
+    <td width="240" height="53"><div align="center"><strong>Photo</strong></div></td>
+    <td width="240"><div align="center"><strong>Sketch drawn by the artist</strong> </div></td>
+    <td width="240"><div align="center"><strong>Synthesized sketch </strong></div></td>
+    <td width="20">&nbsp;</td>
+    <td width="240" height="53"><div align="center"><strong>Photo</strong></div></td>
+    <td width="240"><div align="center"><strong>Sketch drawn by the artist</strong> </div></td>
+    <td width="240"><div align="center"><strong>Synthesized sketch </strong></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00007.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00007.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00007.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00046.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00046.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00046.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00039.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00039.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00039.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00042.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00042.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00042.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00019.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00019.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00019.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00001.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00001.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00001.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00002.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00002.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00002.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00003.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00003.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00003.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00004.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00004.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00004.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00005.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00005.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00005.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00056.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00056.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00056.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00006.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00006.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00006.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00008.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00008.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00008.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00009.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00009.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00009.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00010.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00010.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00010.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00011.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00011.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00011.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00012.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00012.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00012.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00013.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00013.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00013.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00014.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00014.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00014.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00015.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00015.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00015.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00016.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00016.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00016.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00017.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00017.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00017.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00018.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00018.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00018.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00020.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00020.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00020.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00021.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00021.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00021.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00022.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00022.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00022.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00023.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00023.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00023.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00024.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00024.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00024.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00025.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00025.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00025.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00026.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00026.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00026.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00027.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00027.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00027.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00028.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00028.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00028.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00029.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00029.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00029.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00030.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00030.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00030.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00031.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00031.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00031.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00032.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00032.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00032.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00033.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00033.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00033.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00034.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00034.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00034.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00035.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00035.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00035.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00036.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00036.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00036.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00037.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00037.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00037.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00038.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00038.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00038.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00040.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00040.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00040.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00041.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00041.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00041.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00043.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00043.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00043.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00044.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00044.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00044.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00045.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00045.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00045.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00046.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00046.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00046.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00048.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00048.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00048.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00049.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00049.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00049.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00050.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00050.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00050.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00051.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00051.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00051.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00052.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00052.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00052.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00053.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00053.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00053.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00054.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00054.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00054.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00055.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00055.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00055.jpg" width="200" height="250"></div></td>
+  </tr>
+    <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00057.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00057.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00057.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00058.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00058.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00058.jpg" width="200" height="250"></div></td>
+  </tr>
+      <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00059.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00059.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00059.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00060.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00060.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00060.jpg" width="200" height="250"></div></td>
+  </tr>
+      <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00061.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00061.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00061.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00062.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00062.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00062.jpg" width="200" height="250"></div></td>
+  </tr>
+      <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00063.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00063.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00063.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00064.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00064.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00064.jpg" width="200" height="250"></div></td>
+  </tr>
+      <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00065.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00065.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00065.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00066.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00066.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00066.jpg" width="200" height="250"></div></td>
+  </tr>
+        <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00067.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00067.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00067.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00068.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00068.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00068.jpg" width="200" height="250"></div></td>
+  </tr>
+        <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00069.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00069.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00069.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00070.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00070.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00070.jpg" width="200" height="250"></div></td>
+  </tr>
+        <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00071.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00071.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00071.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00072.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00072.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00072.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00073.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00073.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00073.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00074.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00074.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00074.jpg" width="200" height="250"></div></td>
+  </tr>
+    <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00075.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00075.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00075.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TP_00076.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_TS_00076.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SS_S_00076.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"></div></td>
+  </tr>
+</tbody></table>
+<p>&nbsp;</p>
+<h2 align="center">Transductive Face Photo Synthesis</h2>
+<p>&nbsp;</p>
+<table width="1460" border="1" align="center">
+  <tbody><tr>
+    <td width="220" height="53"><div align="center"><strong>Sketch drawn by the artist</strong></div></td>
+    <td width="220"><div align="center"><strong>Photo</strong></div></td>
+    <td width="220"><div align="center"><strong>Synthesized photo </strong></div></td>
+    <td width="20">&nbsp;</td>
+    <td width="220" height="53"><div align="center"><strong>Sketch drawn by the artist</strong></div></td>
+    <td width="220"><div align="center"><strong>Photo</strong></div></td>
+    <td width="220"><div align="center"><strong>Synthesized photo </strong></div></td>
+  </tr>
+   <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00007.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00007.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00007.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00046.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00046.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00046.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00039.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00039.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00039.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00042.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00042.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00042.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00019.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00019.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00019.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00001.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00001.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00001.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00002.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00002.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00002.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00003.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00003.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00003.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00004.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00004.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00004.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00005.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00005.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00005.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00056.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00056.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00056.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00006.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00006.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00006.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00008.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00008.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00008.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00009.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00009.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00009.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00010.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00010.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00010.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00011.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00011.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00011.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00012.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00012.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00012.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00013.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00013.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00013.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00014.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00014.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00014.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00015.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00015.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00015.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00016.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00016.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00016.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00017.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00017.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00017.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00018.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00018.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00018.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00020.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00020.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00020.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00021.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00021.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00021.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00022.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00022.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00022.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00023.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00023.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00023.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00024.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00024.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00024.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00025.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00025.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00025.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00026.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00026.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00026.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00027.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00027.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00027.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00028.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00028.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00028.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00029.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00029.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00029.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00030.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00030.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00030.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00031.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00031.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00031.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00032.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00032.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00032.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00033.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00033.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00033.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00034.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00034.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00034.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00035.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00035.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00035.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00036.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00036.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00036.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00037.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00037.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00037.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00038.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00038.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00038.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00040.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00040.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00040.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00041.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00041.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00041.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00043.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00043.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00043.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00044.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00044.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00044.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00045.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00045.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00045.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00046.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00046.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00046.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00048.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00048.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00048.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00049.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00049.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00049.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00050.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00050.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00050.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00051.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00051.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00051.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00052.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00052.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00052.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00053.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00053.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00053.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00054.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00054.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00054.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00055.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00055.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00055.jpg" width="200" height="250"></div></td>
+  </tr>
+    <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00057.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00057.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00057.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00058.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00058.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00058.jpg" width="200" height="250"></div></td>
+  </tr>
+      <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00059.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00059.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00059.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00060.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00060.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00060.jpg" width="200" height="250"></div></td>
+  </tr>
+      <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00061.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00061.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00061.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00062.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00062.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00062.jpg" width="200" height="250"></div></td>
+  </tr>
+      <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00063.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00063.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00063.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00064.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00064.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00064.jpg" width="200" height="250"></div></td>
+  </tr>
+      <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00065.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00065.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00065.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00066.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00066.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00066.jpg" width="200" height="250"></div></td>
+  </tr>
+        <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00067.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00067.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00067.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00068.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00068.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00068.jpg" width="200" height="250"></div></td>
+  </tr>
+        <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00069.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00069.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00069.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00070.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00070.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00070.jpg" width="200" height="250"></div></td>
+  </tr>
+        <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00071.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00071.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00071.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00072.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00072.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00072.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00073.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00073.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00073.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00074.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00074.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00074.jpg" width="200" height="250"></div></td>
+  </tr>
+    <tr>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00075.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00075.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00075.jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TS_00076.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_TP_00076.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method_CUHK_FERET/SP_P_00076.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"></div></td>
+  </tr>
+</tbody></table>
+<p>&nbsp;</p>
+<p align="left">&nbsp; </p>
+
+
+<div><embed id="lingoes_plugin_object" type="application/lingoes-npruntime-capture-word-plugin" hidden="true" width="0" height="0"></div><div id="sbi_camera_button" class="sbi_search" style="left: 0px; top: 0px; position: absolute; width: 29px; height: 27px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; border-image: initial; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; z-index: 2147483647; display: none; "></div></body><style type="text/css">embed[type*="application/x-shockwave-flash"],embed[src*=".swf"],object[type*="application/x-shockwave-flash"],object[codetype*="application/x-shockwave-flash"],object[src*=".swf"],object[codebase*="swflash.cab"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"],object[classid*="d27cdb6e-ae6d-11cf-96b8-444553540000"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"]{	display: none !important;}</style></html>
