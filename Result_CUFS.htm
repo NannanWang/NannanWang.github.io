@@ -1,0 +1,569 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Transductive FSPS</title>
+<!--<style type="text/css">-->
+<!--
+body {
+	background-color: #D6BA8F;
+}
+-->
+</style></head>
+
+<body id="aeaoofnhgocdbnbeljkmbjdmhbcokfdb-mousedown" bgcolor="#BEBEBE">
+<h2 align="center">Transductive Face Sketch Synthesis</h2>
+<!--<br/><br/>
+<h3 align = "left"><font size=5 color=#000000>Nannan Wang, Dacheng Tao, Xinbo Gao, Xuelong Li, Jie Li, "Transductive Face Sketch-Photo Synthesis", Submitted.</font></h3>-->
+<table width="1460" border="1" align="center">
+  <tbody><tr>
+    <td width="240" height="53"><div align="center"><strong>Photo</strong></div></td>
+    <td width="240"><div align="center"><strong>Sketch drawn by the artist</strong> </div></td>
+    <td width="240"><div align="center"><strong>Synthesized sketch </strong></div></td>
+    <td width="20">&nbsp;</td>
+    <td width="240" height="53"><div align="center"><strong>Photo</strong></div></td>
+    <td width="240"><div align="center"><strong>Sketch drawn by the artist</strong> </div></td>
+    <td width="240"><div align="center"><strong>Synthesized sketch </strong></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-002-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-002-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-002-1(1).jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m1-001-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m1-001-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m1-001-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-010-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-010-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-010-1(1).jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m1-006-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m1-006-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m1-006-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-018-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-018-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-018-1(1).jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m1-007-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m1-007-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m1-007-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-015-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-015-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-015-1(1).jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m1-019-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m1-019-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m1-019-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-020-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-020-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-020-1(1).jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m1-037-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m1-037-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m1-037-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-022-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-022-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-022-1(1).jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m1-041-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m1-041-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m1-041-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-029-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-029-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-029-1(1).jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-018-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/M2-018-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/M2-018-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-023-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-023-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-023-1(1).jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-022-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/M2-022-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/M2-022-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-025-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-025-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-025-1(1).jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-093-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-093-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-093-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-031-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-031-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-031-1(1).jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-035-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/M2-035-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/M2-035-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-042-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-042-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-042-1(1).jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-092-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-092-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-092-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-050-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-050-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-050-1(1).jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-087-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-087-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-087-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-051-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-051-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-051-1(1).jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-084-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-084-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-084-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-052-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-052-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-052-1(1).jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-077-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-077-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-077-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-059-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-059-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-059-1(1).jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-036-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/M2-036-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/M2-036-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-003-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Wp-003-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-003-1(1).jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f1-001-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f1-001-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f1-001-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-016-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Wp-016-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-016-1(1).jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f-017-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-017-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-017-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-023-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Wp-023-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-023-1(1).jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f-018-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-018-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-018-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-024-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Wp-024-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-024-1(1).jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f-019-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-019-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-019-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-034-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Wp-034-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-034-1(1).jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f-023-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-023-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-023-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-036-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Wp-036-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-036-1(1).jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f-027-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-027-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-027-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-037-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Wp-037-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-037-1(1).jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f-029-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-029-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-029-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-039-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Wp-039-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-039-1(1).jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f-039-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f-039-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f-039-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-041-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Wp-041-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-041-1(1).jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f-028-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-028-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-028-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-046-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Wp-046-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-046-1(1).jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f-008-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-008-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-008-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-047-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Wp-047-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-047-1(1).jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f-007-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-007-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-007-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-050-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Wp-050-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-050-1(1).jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f-010-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-010-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-010-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-056-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Wp-056-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-056-1(1).jpg" width="200" height="250"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f1-013-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f1-013-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f1-013-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"></div></td>
+    <td>&nbsp;</td>
+    <td><div align="center"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"></div></td>
+  </tr>
+</tbody></table>
+<p>&nbsp;</p>
+<h2 align="center">Transductive Face Photo Synthesis</h2>
+<p>&nbsp;</p>
+<table width="1460" border="1" align="center">
+  <tbody><tr>
+    <td width="220" height="53"><div align="center"><strong>Sketch drawn by the artist</strong></div></td>
+    <td width="220"><div align="center"><strong>Photo</strong></div></td>
+    <td width="220"><div align="center"><strong>Synthesized photo </strong></div></td>
+    <td width="20">&nbsp;</td>
+    <td width="220" height="53"><div align="center"><strong>Sketch drawn by the artist</strong></div></td>
+    <td width="220"><div align="center"><strong>Photo</strong></div></td>
+    <td width="220"><div align="center"><strong>Synthesized photo </strong></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-002-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-002-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-002-1(2).jpg" width="200" height="250"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-067-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-067-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-067-01(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-003-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-003-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-003-1(1).jpg" width="200" height="250"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/M2-012-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-012-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-081-01-sz1.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-005-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-005-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-005-1(1).jpg" width="200" height="250"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-086-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-086-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-086-01(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-006-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-006-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-006-1(1).jpg" width="200" height="250"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/M2-030-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-030-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-098-01-sz1.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-018-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-018-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-018-1(2).jpg" width="200" height="250"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/M2-032-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-032-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-100-01-sz1.jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-022-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-022-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-022-1(2).jpg" width="200" height="250"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m1-032-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m1-032-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m1-032-01(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-026-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-026-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-026-1(1).jpg" width="200" height="250"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m1-037-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m1-037-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m1-037-01(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-031-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-031-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-031-1(2).jpg" width="200" height="250"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-070-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-070-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-070-01(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-073-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-073-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-073-1(1).jpg" width="200" height="250"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/M2-056-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-056-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/M2-056-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-052-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-052-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-052-1(2).jpg" width="200" height="250"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-074-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-074-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-074-01(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-043-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-043-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-043-1(1).jpg" width="200" height="250"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-092-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-092-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-092-01(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-056-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-056-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-056-1(1).jpg" width="200" height="250"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-081-01-sz1(1).jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-081-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-081-01(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-042-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-042-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-042-1(2).jpg" width="200" height="250"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-080-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-080-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-080-01(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Mp-057-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-057-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-057-1(1).jpg" width="200" height="250"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-079-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-079-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-079-01(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Wp-001-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-001-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-001-1(1).jpg" width="200" height="250"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/M2-061-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-061-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/M2-061-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Wp-003-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-003-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-003-1(2).jpg" width="200" height="250"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/M2-054-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/m-054-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/M2-054-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Wp-023-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-023-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-023-1(2).jpg" width="200" height="250"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-032-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f-032-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-032-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Wp-030-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-030-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-030-1(1).jpg" width="200" height="250"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f1-005-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f1-005-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f1-005-01(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Wp-034-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-034-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-034-1(2).jpg" width="200" height="250"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f1-006-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f1-006-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f1-006-01(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Wp-035-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-035-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-035-1(1).jpg" width="200" height="250"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-008-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f-008-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-008-01-sz1(2).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Wp-037-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-037-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-037-1(2).jpg" width="200" height="250"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-009-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f-009-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-009-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Wp-046-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-046-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-046-1(2).jpg" width="200" height="250"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-010-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f-010-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-010-01-sz1(2).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Wp-047-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-047-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-047-1(2).jpg" width="200" height="250"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-014-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f-014-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-014-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Wp-051-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-051-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-051-1(1).jpg" width="200" height="250"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-017-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f-017-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-017-01-sz1(2).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Wp-056-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-056-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-056-1(2).jpg" width="200" height="250"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-018-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f-018-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-018-01-sz1(2).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Wp-041-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-041-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-041-1(2).jpg" width="200" height="250"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-019-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f-019-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-019-01-sz1(2).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Wp-026-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-026-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-026-1(1).jpg" width="200" height="250"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-020-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f-020-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-020-01-sz1(1).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td height="270"><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/Wp-049-1-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-049-1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/w-049-1(1).jpg" width="200" height="250"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-028-01-sz1.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/f-028-01.jpg" width="200" height="250"></div></td>
+    <td><div align="center"><img src="./Face Sketch Synthesis Using the Transductive Face Sketch-Photo Synthesis Method/F2-028-01-sz1(2).jpg" width="200" height="250"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"></div></td>
+    <td><div align="center"></div></td>
+  </tr>
+</tbody></table>
+<p>&nbsp;</p>
+<p align="left">&nbsp; </p>
+
+
+<div><embed id="lingoes_plugin_object" type="application/lingoes-npruntime-capture-word-plugin" hidden="true" width="0" height="0"></div><div id="sbi_camera_button" class="sbi_search" style="left: 0px; top: 0px; position: absolute; width: 29px; height: 27px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; border-image: initial; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; z-index: 2147483647; display: none; "></div></body><style type="text/css">embed[type*="application/x-shockwave-flash"],embed[src*=".swf"],object[type*="application/x-shockwave-flash"],object[codetype*="application/x-shockwave-flash"],object[src*=".swf"],object[codebase*="swflash.cab"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"],object[classid*="d27cdb6e-ae6d-11cf-96b8-444553540000"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"]{	display: none !important;}</style></html>
